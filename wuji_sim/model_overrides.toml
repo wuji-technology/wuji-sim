@@ -1,0 +1,330 @@
+# Hand-property fixes for the hand model (hand2_2).
+product = "hand2_2"
+description_version = "v2026.11.18"
+
+[joint_armature]
+# Corresponding left/right joints use identical values.
+source = "estimate"
+
+[joint_armature.l_thumb_cmc_flex]
+value = 0.0001457162066834878
+unit = "kg*m^2"
+
+[joint_armature.l_thumb_cmc_abd]
+value = 0.00013663892981144644
+unit = "kg*m^2"
+
+[joint_armature.l_thumb_mcp]
+value = 0.00012735528418833324
+unit = "kg*m^2"
+
+[joint_armature.l_thumb_ip]
+value = 8.768902139971928e-05
+unit = "kg*m^2"
+
+[joint_armature.l_index_finger_mcp_flex]
+value = 0.00011304740105532539
+unit = "kg*m^2"
+
+[joint_armature.l_index_finger_mcp_abd]
+value = 5.1271605241470905e-05
+unit = "kg*m^2"
+
+[joint_armature.l_index_finger_pip]
+value = 4.843782959990254e-05
+unit = "kg*m^2"
+
+[joint_armature.l_index_finger_dip]
+value = 7.906192627320932e-05
+unit = "kg*m^2"
+
+[joint_armature.l_middle_finger_mcp_flex]
+value = 0.00020110478286346846
+unit = "kg*m^2"
+
+[joint_armature.l_middle_finger_mcp_abd]
+value = 7.106655434321573e-05
+unit = "kg*m^2"
+
+[joint_armature.l_middle_finger_pip]
+value = 6.05474605842666e-05
+unit = "kg*m^2"
+
+[joint_armature.l_middle_finger_dip]
+value = 5.659271669130923e-05
+unit = "kg*m^2"
+
+[joint_armature.l_ring_finger_mcp_flex]
+value = 0.00013938973043403448
+unit = "kg*m^2"
+
+[joint_armature.l_ring_finger_mcp_abd]
+value = 3.544107855351169e-05
+unit = "kg*m^2"
+
+[joint_armature.l_ring_finger_pip]
+value = 5.233973575843903e-05
+unit = "kg*m^2"
+
+[joint_armature.l_ring_finger_dip]
+value = 6.0479482928204684e-05
+unit = "kg*m^2"
+
+[joint_armature.l_pinky_mcp_flex]
+value = 9.70625901007757e-05
+unit = "kg*m^2"
+
+[joint_armature.l_pinky_mcp_abd]
+value = 3.8260542056944675e-05
+unit = "kg*m^2"
+
+[joint_armature.l_pinky_pip]
+value = 4.664456024117704e-05
+unit = "kg*m^2"
+
+[joint_armature.l_pinky_dip]
+value = 4.74377771614785e-05
+unit = "kg*m^2"
+
+[joint_armature.r_thumb_cmc_flex]
+value = 0.0001457162066834878
+unit = "kg*m^2"
+
+[joint_armature.r_thumb_cmc_abd]
+value = 0.00013663892981144644
+unit = "kg*m^2"
+
+[joint_armature.r_thumb_mcp]
+value = 0.00012735528418833324
+unit = "kg*m^2"
+
+[joint_armature.r_thumb_ip]
+value = 8.768902139971928e-05
+unit = "kg*m^2"
+
+[joint_armature.r_index_finger_mcp_flex]
+value = 0.00011304740105532539
+unit = "kg*m^2"
+
+[joint_armature.r_index_finger_mcp_abd]
+value = 5.1271605241470905e-05
+unit = "kg*m^2"
+
+[joint_armature.r_index_finger_pip]
+value = 4.843782959990254e-05
+unit = "kg*m^2"
+
+[joint_armature.r_index_finger_dip]
+value = 7.906192627320932e-05
+unit = "kg*m^2"
+
+[joint_armature.r_middle_finger_mcp_flex]
+value = 0.00020110478286346846
+unit = "kg*m^2"
+
+[joint_armature.r_middle_finger_mcp_abd]
+value = 7.106655434321573e-05
+unit = "kg*m^2"
+
+[joint_armature.r_middle_finger_pip]
+value = 6.05474605842666e-05
+unit = "kg*m^2"
+
+[joint_armature.r_middle_finger_dip]
+value = 5.659271669130923e-05
+unit = "kg*m^2"
+
+[joint_armature.r_ring_finger_mcp_flex]
+value = 0.00013938973043403448
+unit = "kg*m^2"
+
+[joint_armature.r_ring_finger_mcp_abd]
+value = 3.544107855351169e-05
+unit = "kg*m^2"
+
+[joint_armature.r_ring_finger_pip]
+value = 5.233973575843903e-05
+unit = "kg*m^2"
+
+[joint_armature.r_ring_finger_dip]
+value = 6.0479482928204684e-05
+unit = "kg*m^2"
+
+[joint_armature.r_pinky_mcp_flex]
+value = 9.70625901007757e-05
+unit = "kg*m^2"
+
+[joint_armature.r_pinky_mcp_abd]
+value = 3.8260542056944675e-05
+unit = "kg*m^2"
+
+[joint_armature.r_pinky_pip]
+value = 4.664456024117704e-05
+unit = "kg*m^2"
+
+[joint_armature.r_pinky_dip]
+value = 4.74377771614785e-05
+unit = "kg*m^2"
+
+[joint_torque_limit]
+source = "estimate: 1.5 A current limit × torque constant"
+
+[joint_torque_limit.l_thumb_cmc_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.l_thumb_cmc_abd]
+value = 0.532
+unit = "N*m"
+
+[joint_torque_limit.l_thumb_mcp]
+value = 0.332
+unit = "N*m"
+
+[joint_torque_limit.l_thumb_ip]
+value = 0.200
+unit = "N*m"
+
+[joint_torque_limit.l_index_finger_mcp_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.l_index_finger_mcp_abd]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_index_finger_pip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_index_finger_dip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_middle_finger_mcp_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.l_middle_finger_mcp_abd]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_middle_finger_pip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_middle_finger_dip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_ring_finger_mcp_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.l_ring_finger_mcp_abd]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_ring_finger_pip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_ring_finger_dip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.l_pinky_mcp_flex]
+value = 0.669
+unit = "N*m"
+
+[joint_torque_limit.l_pinky_mcp_abd]
+value = 0.167
+unit = "N*m"
+
+[joint_torque_limit.l_pinky_pip]
+value = 0.167
+unit = "N*m"
+
+[joint_torque_limit.l_pinky_dip]
+value = 0.167
+unit = "N*m"
+
+[joint_torque_limit.r_thumb_cmc_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.r_thumb_cmc_abd]
+value = 0.532
+unit = "N*m"
+
+[joint_torque_limit.r_thumb_mcp]
+value = 0.332
+unit = "N*m"
+
+[joint_torque_limit.r_thumb_ip]
+value = 0.200
+unit = "N*m"
+
+[joint_torque_limit.r_index_finger_mcp_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.r_index_finger_mcp_abd]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_index_finger_pip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_index_finger_dip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_middle_finger_mcp_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.r_middle_finger_mcp_abd]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_middle_finger_pip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_middle_finger_dip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_ring_finger_mcp_flex]
+value = 0.620
+unit = "N*m"
+
+[joint_torque_limit.r_ring_finger_mcp_abd]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_ring_finger_pip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_ring_finger_dip]
+value = 0.251
+unit = "N*m"
+
+[joint_torque_limit.r_pinky_mcp_flex]
+value = 0.669
+unit = "N*m"
+
+[joint_torque_limit.r_pinky_mcp_abd]
+value = 0.167
+unit = "N*m"
+
+[joint_torque_limit.r_pinky_pip]
+value = 0.167
+unit = "N*m"
+
+[joint_torque_limit.r_pinky_dip]
+value = 0.167
+unit = "N*m"

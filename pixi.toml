@@ -1,0 +1,82 @@
+[workspace]
+name = "wuji-sim"
+channels = ["https://prefix.dev/conda-forge"]
+# Isaac Sim needs glibc 2.35; one platform keeps every environment on the same host requirements.
+platforms = [{ platform = "linux-64", glibc = "2.35" }]
+# Older pixi versions rename the rich platform or rehash records, which rewrites pixi.lock.
+requires-pixi = ">=0.84.1"
+
+# python, mujoco, mujoco-warp and warp-lang versions are pinned as a compatible package set.
+[dependencies]
+python = "3.11.*"
+pytest = ">=9.0"
+
+[pypi-dependencies]
+mujoco = "==3.11.0"
+numpy = ">=2.4,<3"
+imageio = "==2.37.3"
+imageio-ffmpeg = "==0.6.0"
+matplotlib = ">=3.10,<4"
+# Example 06 runs its published pen-spinning policy with ONNX Runtime on the CPU.
+onnxruntime = "==1.23.2"
+wuji-hand2-2-description = "==2026.11.18"
+wuji-sim = { path = ".", editable = true }
+
+[target.unix.activation.env]
+# EGL by default so offscreen rendering works without a display; a MUJOCO_GL set by the caller is kept.
+MUJOCO_GL = "${MUJOCO_GL:-egl}"
+
+[feature.mujoco-warp.pypi-dependencies]
+mujoco-warp = "==3.11.0"
+warp-lang = "==1.17.0"
+
+
+[environments]
+mujoco = { solve-group = "default" }
+mujoco-warp = { features = ["mujoco-warp"], solve-group = "default" }
+isaaclab = { features = ["isaaclab"], no-default-feature = true, solve-group = "isaaclab" }
+
+[feature.isaaclab.dependencies]
+python = "3.12.*"
+
+# Isaac Lab 3.0 needs Python 3.12 and CUDA 13.0 torch wheels, so this feature uses an independent solve group.
+[feature.isaaclab.pypi-options]
+extra-index-urls = ["https://pypi.nvidia.com", "https://download.pytorch.org/whl/cu130"]
+index-strategy = "unsafe-best-match"
+# isaacsim-core pins a tinyobjloader rc; "allow" would also admit rcs of unrelated packages such as protobuf.
+prerelease-mode = "if-necessary-or-explicit"
+
+# Isaac Sim 6.2 pins conflict with Isaac Lab; copied from IsaacLab v3.0.0 tools/wheel_builder/uv-overrides.txt.
+[feature.isaaclab.pypi-options.dependency-overrides]
+numpy = ">=2"
+mujoco = "~=3.12.0"
+mujoco-warp = "~=3.12.0"
+newton = { version = "==1.6.1", extras = ["sim"] }
+newton-usd-schemas = ">=0.5.0"
+usd-exchange = "==3.0.1"
+usd-optimize = "~=1.3.1"
+torch = "==2.11.0"
+torchvision = "==0.26.0"
+fsspec = ">=2026.6.0"
+packaging = ">=20,<27"
+urllib3 = ">=2.8.0"
+# isaacsim-core pins an older imageio; VideoWriter's libx264 backend needs the pin shared with the default feature.
+imageio = "==2.37.3"
+
+[feature.isaaclab.pypi-dependencies]
+pytest = ">=9.0"
+isaaclab = { version = "==3.0.0", extras = ["isaacsim"] }
+# Same pin as isaacsim-core; listed here so prerelease-mode admits it.
+tinyobjloader = "==2.0.0rc13"
+warp-lang = "==1.17.0"
+# Follows the mujoco dependency override above; the default environments keep their own pin.
+mujoco = "==3.12.0"
+matplotlib = ">=3.10,<4"
+imageio = "==2.37.3"
+imageio-ffmpeg = "==0.6.0"
+wuji-hand2-2-description = "==2026.11.18"
+wuji-sim = { path = ".", editable = true }
+
+[feature.isaaclab.target.unix.activation.env]
+MUJOCO_GL = "${MUJOCO_GL:-egl}"
+

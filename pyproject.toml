@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+# Installed into every Pixi environment as an editable package; dependencies live in pixi.toml.
+[project]
+name = "wuji-sim"
+version = "2026.11.23"
+description = "Simulation of the Wuji Hand 2 in MuJoCo, MuJoCo Warp and Isaac Lab"
+requires-python = ">=3.11,<3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+classifiers = ["Private :: Do Not Upload"]
+
+[tool.setuptools.packages.find]
+include = ["wuji_sim", "wuji_sim.*"]
+
+[tool.setuptools.package-data]
+wuji_sim = ["*.toml", "profiles/*.toml"]
+
+# validation/ and examples/_shared/ are not packaged; tests import them from the project folder.
+[tool.pytest.ini_options]
+pythonpath = [".", "examples/_shared"]

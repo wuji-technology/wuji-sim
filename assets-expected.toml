@@ -1,0 +1,14 @@
+# Expected hand-model digests checked by wuji_sim.assets; see docs/assets.md.
+
+[hand2_2]
+description_repository = "https://github.com/wuji-technology/wuji-description"
+description_version = "v2026.11.18"
+description_subdir = "hand2/hand2_2/body"
+digest = "9909aecbf491fbcd18052f1c2049b700afbaa015086ff55b5c51d5ca148fe766"
+files = 196
+bytes = 173496839
+package = "wuji-hand2-2-description"
+package_version = "2026.11.18"
+package_digest = "657427aee3ac0bb78603e50c08c3ca398fa29a7569e4a8beb2a425cdb4effbec"
+package_files = 194
+package_bytes = 90366068

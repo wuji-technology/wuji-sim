@@ -1,0 +1,16 @@
+# Pass criteria of the checks in validation/. Lengths in m, angles in rad.
+
+[kinematics]
+max_position_error = { value = 1e-6, unit = "m" }
+max_angle_error = { value = 1e-5, unit = "rad" }
+
+[sim_agreement.mujoco_warp]
+max_joint_rms_error = { value = 1e-6, unit = "rad" }
+
+# Isaac Lab uses PhysX implicit joint drives, not the MuJoCo actuator, so its agreement is reported, not gated.
+[sim_agreement.isaaclab]
+report_only = true
+
+[self_collision.push]
+contact_required = true
+max_penetration = { value = 0.002, unit = "m" }

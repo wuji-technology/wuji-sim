@@ -1,0 +1,376 @@
+# MuJoCo simulator settings, not hand model truth values; `source` formats and overrides: docs/platforms.md.
+
+[option]
+source = "default: mjlab 1.6.0"
+
+[option.timestep]
+value = 0.005
+unit = "s"
+source = "choice"
+
+[option.integrator]
+value = "implicitfast"
+unit = "enum"
+
+[option.solver]
+value = "Newton"
+unit = "enum"
+
+[option.iterations]
+value = 100
+unit = "count"
+
+[option.tolerance]
+value = 1e-8
+unit = "1"
+
+[option.ls_iterations]
+value = 50
+unit = "count"
+
+[contact]
+source = "default: MuJoCo 3.11.0"
+
+[contact.geom_friction]
+value = [0.7, 0.005, 0.0001]
+unit = "[1, m, m]"
+source = "choice"
+
+[contact.geom_solref]
+value = [0.02, 1.0]
+unit = "[s, 1]"
+
+[contact.geom_solimp]
+value = [0.9, 0.95, 0.001, 0.5, 2.0]
+unit = "[1, 1, m, 1, 1]"
+
+[contact.geom_condim]
+value = 4
+unit = "count"
+source = "choice"
+
+[joint_coulomb_friction]
+source = "estimate"
+
+[joint_coulomb_friction.l_thumb_cmc_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_thumb_cmc_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_thumb_mcp]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_thumb_ip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_index_finger_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_index_finger_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_index_finger_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_index_finger_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_middle_finger_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_middle_finger_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_middle_finger_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_middle_finger_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_ring_finger_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_ring_finger_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_ring_finger_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_ring_finger_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_pinky_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_pinky_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_pinky_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.l_pinky_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_thumb_cmc_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_thumb_cmc_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_thumb_mcp]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_thumb_ip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_index_finger_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_index_finger_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_index_finger_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_index_finger_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_middle_finger_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_middle_finger_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_middle_finger_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_middle_finger_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_ring_finger_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_ring_finger_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_ring_finger_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_ring_finger_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_pinky_mcp_flex]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_pinky_mcp_abd]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_pinky_pip]
+value = 0.0
+unit = "N*m"
+
+[joint_coulomb_friction.r_pinky_dip]
+value = 0.0
+unit = "N*m"
+
+[joint_damping]
+source = "estimate"
+
+[joint_damping.l_thumb_cmc_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_thumb_cmc_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_thumb_mcp]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_thumb_ip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_index_finger_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_index_finger_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_index_finger_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_index_finger_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_middle_finger_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_middle_finger_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_middle_finger_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_middle_finger_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_ring_finger_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_ring_finger_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_ring_finger_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_ring_finger_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_pinky_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_pinky_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_pinky_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.l_pinky_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_thumb_cmc_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_thumb_cmc_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_thumb_mcp]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_thumb_ip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_index_finger_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_index_finger_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_index_finger_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_index_finger_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_middle_finger_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_middle_finger_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_middle_finger_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_middle_finger_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_ring_finger_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_ring_finger_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_ring_finger_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_ring_finger_dip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_pinky_mcp_flex]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_pinky_mcp_abd]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_pinky_pip]
+value = 0.0
+unit = "N*m*s/rad"
+
+[joint_damping.r_pinky_dip]
+value = 0.0
+unit = "N*m*s/rad"

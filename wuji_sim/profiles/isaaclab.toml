@@ -1,0 +1,97 @@
+# Isaac Lab simulator settings; hand model values stay in model_overrides.toml. `source` formats: docs/platforms.md.
+
+[option.timestep]
+value = 0.005
+unit = "s"
+source = "choice"
+
+[contact]
+source = "choice"
+default_material_static_friction = { value = 0.7, unit = "1" }
+default_material_dynamic_friction = { value = 0.7, unit = "1" }
+
+[joint_friction]
+source = "estimate"
+l_thumb_cmc_flex = { value = 0.0, unit = "N*m" }
+l_thumb_cmc_abd = { value = 0.0, unit = "N*m" }
+l_thumb_mcp = { value = 0.0, unit = "N*m" }
+l_thumb_ip = { value = 0.0, unit = "N*m" }
+l_index_finger_mcp_flex = { value = 0.0, unit = "N*m" }
+l_index_finger_mcp_abd = { value = 0.0, unit = "N*m" }
+l_index_finger_pip = { value = 0.0, unit = "N*m" }
+l_index_finger_dip = { value = 0.0, unit = "N*m" }
+l_middle_finger_mcp_flex = { value = 0.0, unit = "N*m" }
+l_middle_finger_mcp_abd = { value = 0.0, unit = "N*m" }
+l_middle_finger_pip = { value = 0.0, unit = "N*m" }
+l_middle_finger_dip = { value = 0.0, unit = "N*m" }
+l_ring_finger_mcp_flex = { value = 0.0, unit = "N*m" }
+l_ring_finger_mcp_abd = { value = 0.0, unit = "N*m" }
+l_ring_finger_pip = { value = 0.0, unit = "N*m" }
+l_ring_finger_dip = { value = 0.0, unit = "N*m" }
+l_pinky_mcp_flex = { value = 0.0, unit = "N*m" }
+l_pinky_mcp_abd = { value = 0.0, unit = "N*m" }
+l_pinky_pip = { value = 0.0, unit = "N*m" }
+l_pinky_dip = { value = 0.0, unit = "N*m" }
+r_thumb_cmc_flex = { value = 0.0, unit = "N*m" }
+r_thumb_cmc_abd = { value = 0.0, unit = "N*m" }
+r_thumb_mcp = { value = 0.0, unit = "N*m" }
+r_thumb_ip = { value = 0.0, unit = "N*m" }
+r_index_finger_mcp_flex = { value = 0.0, unit = "N*m" }
+r_index_finger_mcp_abd = { value = 0.0, unit = "N*m" }
+r_index_finger_pip = { value = 0.0, unit = "N*m" }
+r_index_finger_dip = { value = 0.0, unit = "N*m" }
+r_middle_finger_mcp_flex = { value = 0.0, unit = "N*m" }
+r_middle_finger_mcp_abd = { value = 0.0, unit = "N*m" }
+r_middle_finger_pip = { value = 0.0, unit = "N*m" }
+r_middle_finger_dip = { value = 0.0, unit = "N*m" }
+r_ring_finger_mcp_flex = { value = 0.0, unit = "N*m" }
+r_ring_finger_mcp_abd = { value = 0.0, unit = "N*m" }
+r_ring_finger_pip = { value = 0.0, unit = "N*m" }
+r_ring_finger_dip = { value = 0.0, unit = "N*m" }
+r_pinky_mcp_flex = { value = 0.0, unit = "N*m" }
+r_pinky_mcp_abd = { value = 0.0, unit = "N*m" }
+r_pinky_pip = { value = 0.0, unit = "N*m" }
+r_pinky_dip = { value = 0.0, unit = "N*m" }
+
+[joint_velocity_limit]
+source = "choice"
+l_thumb_cmc_flex = { value = 100.0, unit = "rad/s" }
+l_thumb_cmc_abd = { value = 100.0, unit = "rad/s" }
+l_thumb_mcp = { value = 100.0, unit = "rad/s" }
+l_thumb_ip = { value = 100.0, unit = "rad/s" }
+l_index_finger_mcp_flex = { value = 100.0, unit = "rad/s" }
+l_index_finger_mcp_abd = { value = 100.0, unit = "rad/s" }
+l_index_finger_pip = { value = 100.0, unit = "rad/s" }
+l_index_finger_dip = { value = 100.0, unit = "rad/s" }
+l_middle_finger_mcp_flex = { value = 100.0, unit = "rad/s" }
+l_middle_finger_mcp_abd = { value = 100.0, unit = "rad/s" }
+l_middle_finger_pip = { value = 100.0, unit = "rad/s" }
+l_middle_finger_dip = { value = 100.0, unit = "rad/s" }
+l_ring_finger_mcp_flex = { value = 100.0, unit = "rad/s" }
+l_ring_finger_mcp_abd = { value = 100.0, unit = "rad/s" }
+l_ring_finger_pip = { value = 100.0, unit = "rad/s" }
+l_ring_finger_dip = { value = 100.0, unit = "rad/s" }
+l_pinky_mcp_flex = { value = 100.0, unit = "rad/s" }
+l_pinky_mcp_abd = { value = 100.0, unit = "rad/s" }
+l_pinky_pip = { value = 100.0, unit = "rad/s" }
+l_pinky_dip = { value = 100.0, unit = "rad/s" }
+r_thumb_cmc_flex = { value = 100.0, unit = "rad/s" }
+r_thumb_cmc_abd = { value = 100.0, unit = "rad/s" }
+r_thumb_mcp = { value = 100.0, unit = "rad/s" }
+r_thumb_ip = { value = 100.0, unit = "rad/s" }
+r_index_finger_mcp_flex = { value = 100.0, unit = "rad/s" }
+r_index_finger_mcp_abd = { value = 100.0, unit = "rad/s" }
+r_index_finger_pip = { value = 100.0, unit = "rad/s" }
+r_index_finger_dip = { value = 100.0, unit = "rad/s" }
+r_middle_finger_mcp_flex = { value = 100.0, unit = "rad/s" }
+r_middle_finger_mcp_abd = { value = 100.0, unit = "rad/s" }
+r_middle_finger_pip = { value = 100.0, unit = "rad/s" }
+r_middle_finger_dip = { value = 100.0, unit = "rad/s" }
+r_ring_finger_mcp_flex = { value = 100.0, unit = "rad/s" }
+r_ring_finger_mcp_abd = { value = 100.0, unit = "rad/s" }
+r_ring_finger_pip = { value = 100.0, unit = "rad/s" }
+r_ring_finger_dip = { value = 100.0, unit = "rad/s" }
+r_pinky_mcp_flex = { value = 100.0, unit = "rad/s" }
+r_pinky_mcp_abd = { value = 100.0, unit = "rad/s" }
+r_pinky_pip = { value = 100.0, unit = "rad/s" }
+r_pinky_dip = { value = 100.0, unit = "rad/s" }

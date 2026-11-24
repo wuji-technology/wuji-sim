@@ -1,0 +1,29 @@
+Copyright 2025 Wuji Technology Co., Ltd.
+
+wuji-sim is distributed under the Apache License, Version 2.0.
+The wuji-sim source files carry SPDX-License-Identifier: Apache-2.0.
+
+The hand assets are from the separate wuji-description repository:
+https://github.com/wuji-technology/wuji-description
+They are distributed under that repository's MIT License. See that repository's
+LICENSE file for the applicable terms.
+
+Isaac Sim and Isaac Lab are separate NVIDIA products under their own licenses; this
+repository does not redistribute them. The isaaclab environment installs them from
+NVIDIA's public package index, and Isaac Sim asks you to accept the NVIDIA Omniverse
+License Agreement on first launch.
+
+Example 06 downloads a pen-spinning policy and its motion clips at run time from release
+v2026.10.22 of the separate wuji-mjlab repository:
+https://github.com/wuji-technology/wuji-mjlab
+They are distributed under that repository's Apache License 2.0, and this repository does
+not redistribute them, except for tests/data/pen_spin_training_env_obs.npz, which contains
+three frames of one clip and observations recorded in that repository's training
+environment. The pen label images in examples/_shared/textures/pen_spin/ are copied from
+the same repository (src/wuji_mjlab/assets/objects/aruco_pen250/textures/) and are
+distributed under the same Apache License 2.0.
+The NOTICE file of the wuji-mjlab repository contains the following attribution notice,
+which applies to the redistributed pen label images and recorded data:
+
+Wuji Hand RL Training Framework
+Copyright 2026 Wuji Technology Co., Ltd.
