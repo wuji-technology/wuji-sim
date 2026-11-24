@@ -25,18 +25,18 @@ Making a simulated hand behave like the real one takes careful configuration. wu
 
 ## Support Matrix
 
-| | MuJoCo | MuJoCo Warp | Isaac Lab |
-| :--- | :--- | :--- | :--- |
-| Tested with | mujoco 3.11.0 | mujoco-warp 3.11.0, warp-lang 1.17.0 | Isaac Lab 3.0.0, Isaac Sim 6.2.0.0 |
-| Asset | MJCF | MJCF | USD |
-| Control mode | MIT | MIT | MIT |
-| Kinematics (fingertip position) | Sim-checked | Sim-checked | Sim-checked |
-| Inertia | Sim-checked | Sim-checked | Sim-checked |
-| Self-collision (test motions) | Sim-checked | Sim-checked | Sim-checked |
-| Joint tracking (free space) | Real-to-sim compared | Real-to-sim compared | Real-to-sim compared |
-| Joint tracking (under load) | Not validated | Not validated | Not validated |
-| Fingertip force | Not validated | Not validated | Not validated |
-| Joint torque limits | Not validated | Not validated | Not validated |
+| | MuJoCo | MuJoCo Warp | Isaac Lab | MotrixSim |
+| :--- | :--- | :--- | :--- | :--- |
+| Tested with | mujoco 3.11.0 | mujoco-warp 3.11.0, warp-lang 1.17.0 | Isaac Lab 3.0.0, Isaac Sim 6.2.0.0 | motrixsim 1.0.0 |
+| Asset | MJCF | MJCF | USD | MJCF |
+| Control mode | MIT | MIT | MIT | MIT |
+| Kinematics (fingertip position) | Sim-checked | Sim-checked | Sim-checked | Not validated |
+| Inertia | Sim-checked | Sim-checked | Sim-checked | Not validated |
+| Self-collision (test motions) | Sim-checked | Sim-checked | Sim-checked | Not validated |
+| Joint tracking (free space) | Real-to-sim compared | Real-to-sim compared | Real-to-sim compared | Not validated |
+| Joint tracking (under load) | Not validated | Not validated | Not validated | Not validated |
+| Fingertip force | Not validated | Not validated | Not validated | Not validated |
+| Joint torque limits | Not validated | Not validated | Not validated | Not validated |
 
 - **Sim-checked** — checked in simulation only, not on the real hand.
 - **Real-to-sim compared** — real-hand recordings are replayed in simulation and the error is reported; there is no pass threshold.
@@ -59,6 +59,7 @@ cd wuji-sim
 
 pixi install --locked -e mujoco        # MuJoCo (CPU)
 pixi install --locked -e mujoco-warp   # MuJoCo Warp (NVIDIA GPU)
+pixi install --locked -e motrixsim     # MotrixSim (CPU)
 pixi install --locked -e isaaclab      # Isaac Lab on Isaac Sim (NVIDIA RTX GPU)
 ```
 
@@ -80,6 +81,12 @@ Needs an NVIDIA GPU with CUDA.
 pixi run -e mujoco-warp python examples/mujoco_warp/01_load_and_step.py --hand right
 ```
 
+#### MotrixSim
+
+```bash
+pixi run -e motrixsim python examples/motrixsim/01_load_and_view.py --hand right
+```
+
 #### Isaac Lab
 
 Needs an NVIDIA RTX GPU, and Isaac Sim asks you to accept the NVIDIA Omniverse EULA on first launch (see
@@ -98,14 +105,14 @@ checkout. See [examples/README.md](examples/README.md) for every command, flag a
 
 ## Examples
 
-| # | Example | MuJoCo | MuJoCo Warp | Isaac Lab |
-| :--- | :--- | :---: | :---: | :---: |
-| 01 | Load and view | [<img src="docs/images/examples/example-01-load-view-mujoco-demo-20261119.png" height="160" alt="Right hand at qpos = 0, MuJoCo">](examples/mujoco/01_load_and_view.py) | [<img src="docs/images/examples/example-01-load-view-mujoco-warp-demo-20261119.png" height="160" alt="Right hand at qpos = 0, MuJoCo Warp">](examples/mujoco_warp/01_load_and_step.py) | [<img src="docs/images/examples/example-01-load-view-isaaclab-demo-20261119.png" height="160" alt="Right hand at qpos = 0, Isaac Lab">](examples/isaaclab/01_load_and_view.py) |
-| 02 | Preset poses | [<img src="docs/images/examples/example-02-preset-poses-mujoco-demo-20261119.png" height="160" alt="Left hand in the pinch pose, MuJoCo">](examples/mujoco/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-mujoco-warp-demo-20261119.png" height="160" alt="Left hand in the pinch pose, MuJoCo Warp">](examples/mujoco_warp/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-isaaclab-demo-20261119.png" height="160" alt="Left hand in the pinch pose, Isaac Lab">](examples/isaaclab/02_preset_poses.py) |
-| 03 | MIT tracking | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-demo-20261119.gif" height="160" alt="Right hand MIT tracking through open, half-grip, fist, open, pinch, and open poses, MuJoCo">](examples/mujoco/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-warp-demo-20261119.gif" height="160" alt="Right hand MIT tracking, MuJoCo Warp">](examples/mujoco_warp/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-isaaclab-demo-20261119.gif" height="160" alt="Right hand MIT tracking, Isaac Lab">](examples/isaaclab/03_mit_tracking.py) |
-| 04 | Joint sweep | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-demo-20261119.gif" height="160" alt="Left hand during a joint sweep, MuJoCo">](examples/mujoco/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-warp-demo-20261119.gif" height="160" alt="Left hand during a joint sweep, MuJoCo Warp">](examples/mujoco_warp/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-isaaclab-demo-20261119.gif" height="160" alt="Left hand during a joint sweep, Isaac Lab">](examples/isaaclab/04_sweep_joints.py) |
-| 05 | Parallel environments | — | [<img src="docs/images/examples/example-05-parallel-environments-mujoco-warp-demo-20261119.gif" height="160" alt="Four right-hand Warp worlds in a 2x2 grid with different poses">](examples/mujoco_warp/05_multi_world.py) | [<img src="docs/images/examples/example-05-parallel-environments-isaaclab-demo-20261119.gif" height="160" alt="Four right-hand Isaac Lab environments with different poses">](examples/isaaclab/05_parallel_envs.py) |
-| 06 | Pen spin | [<img src="docs/images/examples/example-06-pen-spin-mujoco-demo-20261122.gif" height="160" alt="Right hand spinning a pen under a published policy, MuJoCo, played in real time">](examples/mujoco/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-mujoco-warp-demo-20261122.gif" height="160" alt="Right hand spinning a pen under a published policy, MuJoCo Warp, played in real time">](examples/mujoco_warp/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-isaaclab-demo-20261122.gif" height="160" alt="Right hand spinning a pen under a published policy, Isaac Lab, played in real time">](examples/isaaclab/06_pen_spin.py) |
+| # | Example | MuJoCo | MuJoCo Warp | Isaac Lab | MotrixSim |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| 01 | Load and view | [<img src="docs/images/examples/example-01-load-view-mujoco-demo-20261119.png" height="160" alt="Right hand at qpos = 0, MuJoCo">](examples/mujoco/01_load_and_view.py) | [<img src="docs/images/examples/example-01-load-view-mujoco-warp-demo-20261119.png" height="160" alt="Right hand at qpos = 0, MuJoCo Warp">](examples/mujoco_warp/01_load_and_step.py) | [<img src="docs/images/examples/example-01-load-view-isaaclab-demo-20261119.png" height="160" alt="Right hand at qpos = 0, Isaac Lab">](examples/isaaclab/01_load_and_view.py) | [motrixsim/01_load_and_view.py](examples/motrixsim/01_load_and_view.py) |
+| 02 | Preset poses | [<img src="docs/images/examples/example-02-preset-poses-mujoco-demo-20261119.png" height="160" alt="Left hand in the pinch pose, MuJoCo">](examples/mujoco/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-mujoco-warp-demo-20261119.png" height="160" alt="Left hand in the pinch pose, MuJoCo Warp">](examples/mujoco_warp/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-isaaclab-demo-20261119.png" height="160" alt="Left hand in the pinch pose, Isaac Lab">](examples/isaaclab/02_preset_poses.py) | [motrixsim/02_preset_poses.py](examples/motrixsim/02_preset_poses.py) |
+| 03 | MIT tracking | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-demo-20261119.gif" height="160" alt="Right hand MIT tracking through open, half-grip, fist, open, pinch, and open poses, MuJoCo">](examples/mujoco/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-warp-demo-20261119.gif" height="160" alt="Right hand MIT tracking, MuJoCo Warp">](examples/mujoco_warp/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-isaaclab-demo-20261119.gif" height="160" alt="Right hand MIT tracking, Isaac Lab">](examples/isaaclab/03_mit_tracking.py) | [motrixsim/03_mit_tracking.py](examples/motrixsim/03_mit_tracking.py) |
+| 04 | Joint sweep | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-demo-20261119.gif" height="160" alt="Left hand during a joint sweep, MuJoCo">](examples/mujoco/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-warp-demo-20261119.gif" height="160" alt="Left hand during a joint sweep, MuJoCo Warp">](examples/mujoco_warp/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-isaaclab-demo-20261119.gif" height="160" alt="Left hand during a joint sweep, Isaac Lab">](examples/isaaclab/04_sweep_joints.py) | [motrixsim/04_sweep_joints.py](examples/motrixsim/04_sweep_joints.py) |
+| 05 | Parallel environments | — | [<img src="docs/images/examples/example-05-parallel-environments-mujoco-warp-demo-20261119.gif" height="160" alt="Four right-hand Warp worlds in a 2x2 grid with different poses">](examples/mujoco_warp/05_multi_world.py) | [<img src="docs/images/examples/example-05-parallel-environments-isaaclab-demo-20261119.gif" height="160" alt="Four right-hand Isaac Lab environments with different poses">](examples/isaaclab/05_parallel_envs.py) | [motrixsim/05_multi_world.py](examples/motrixsim/05_multi_world.py) |
+| 06 | Pen spin | [<img src="docs/images/examples/example-06-pen-spin-mujoco-demo-20261122.gif" height="160" alt="Right hand spinning a pen under a published policy, MuJoCo, played in real time">](examples/mujoco/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-mujoco-warp-demo-20261122.gif" height="160" alt="Right hand spinning a pen under a published policy, MuJoCo Warp, played in real time">](examples/mujoco_warp/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-isaaclab-demo-20261122.gif" height="160" alt="Right hand spinning a pen under a published policy, Isaac Lab, played in real time">](examples/isaaclab/06_pen_spin.py) | [motrixsim/06_pen_spin.py](examples/motrixsim/06_pen_spin.py) |
 
 — : no example for this simulator.
 
@@ -140,6 +147,7 @@ SDK names: Python `ControlMode.MitV2`, C `WUJI_CONTROL_MODE_MIT_V2`, mode string
 | :--- | :--- | :--- | :--- | :--- |
 | MuJoCo | mujoco 3.11.0 | `mujoco` | 0.005 s | Not needed |
 | MuJoCo Warp | mujoco-warp 3.11.0, warp-lang 1.17.0 | `mujoco-warp` | 0.005 s | NVIDIA GPU with CUDA |
+| MotrixSim | motrixsim 1.0.0 | `motrixsim` | 0.005 s | Not needed |
 | Isaac Lab | Isaac Lab 3.0.0 on Isaac Sim 6.2.0.0 | `isaaclab` | 0.005 s | NVIDIA RTX GPU |
 
 - The `mujoco` and `mujoco-warp` environments resolve Python 3.11; `isaaclab` resolves Python 3.12

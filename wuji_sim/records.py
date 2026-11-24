@@ -21,11 +21,12 @@ import numpy as np
 import wuji_sim
 
 PRODUCT = "hand2_2"
-PLATFORMS = ("mujoco", "mujoco_warp", "isaaclab")
+PLATFORMS = ("mujoco", "mujoco_warp", "motrixsim", "isaaclab")
 HANDS = ("left", "right")
 REQUIRED_DISTRIBUTIONS = {
     "mujoco": ("mujoco", "numpy"),
     "mujoco_warp": ("mujoco", "mujoco-warp", "warp-lang", "numpy"),
+    "motrixsim": ("motrixsim", "numpy"),
     "isaaclab": ("isaaclab", "isaacsim", "torch", "numpy"),
 }
 OPTIONAL_DISTRIBUTIONS = ("imageio", "imageio-ffmpeg", "matplotlib", "onnxruntime")

@@ -30,6 +30,8 @@ JACOBIANS = {
     "sparse": mujoco.mjtJacobian.mjJAC_SPARSE,
     "auto": mujoco.mjtJacobian.mjJAC_AUTO,
 }
+# Enum-valued option parameters need the profile's string mapped to the mujoco enum; the rest assign as-is.
+OPTION_ENUMS = {"integrator": INTEGRATORS, "solver": SOLVERS}
 EFFECTIVE_UNITS = {
     "frictionloss": "N*m",
     "damping": "N*m*s/rad",
@@ -261,12 +263,11 @@ def apply_profile(
             raise profiles.ProfileError(f"{group}: no entry for model joint(s) {missing} (profile {profile['path']})")
 
     option = requested["option"]
-    spec.option.timestep = option["timestep"]
-    spec.option.integrator = INTEGRATORS[option["integrator"]]
-    spec.option.solver = SOLVERS[option["solver"]]
-    spec.option.iterations = option["iterations"]
-    spec.option.tolerance = option["tolerance"]
-    spec.option.ls_iterations = option["ls_iterations"]
+    unknown = sorted(set(option) - set(OPTION_FIELDS))
+    if unknown:
+        raise profiles.ProfileError(f"option: unknown parameter(s) {unknown} (profile {profile['path']})")
+    for name, value in option.items():
+        setattr(spec.option, name, OPTION_ENUMS[name][value] if name in OPTION_ENUMS else value)
     contact = requested["contact"]
     for geom in spec.geoms:
         if geom.contype or geom.conaffinity:
@@ -482,7 +483,9 @@ def report(
         entry["actuator"]["ctrllimited_effective"] = bool(arrays["actuator_ctrllimited"][aid])
 
     effective_option = read_option(model.opt)
-    requested_option = {name: params["option"][name]["value"] for name in OPTION_FIELDS}
+    # A backend whose profile drops MuJoCo-only option parameters (integrator, ls_iterations) reports the rest.
+    option_fields = tuple(params["option"])
+    requested_option = {name: params["option"][name]["value"] for name in option_fields}
     collision = [g for g in range(model.ngeom) if model.geom_contype[g] or model.geom_conaffinity[g]]
     compiled_contact = {name: _unique(getattr(model, name).tolist(), collision) for name in CONTACT_FIELDS}
     contact = {
@@ -522,14 +525,16 @@ def report(
             "profile": requested_option[name],
             "effective": effective_option[name],
         }
-        for name in OPTION_FIELDS
+        for name in option_fields
     }
-    option["jacobian"] = {
-        "unit": "enum",
-        "model_source": build.model_option["jacobian"],
-        "profile": None,
-        "effective": effective_option["jacobian"],
-    }
+    if "integrator" in option_fields:
+        # The MuJoCo-family backends additionally report the compiled jacobian layout.
+        option["jacobian"] = {
+            "unit": "enum",
+            "model_source": build.model_option["jacobian"],
+            "profile": None,
+            "effective": effective_option["jacobian"],
+        }
     replacement_by_joint = {entry["joint"]: entry for entry in build.replacement["joints"]}
     joints = {
         model.joint(j).name: {

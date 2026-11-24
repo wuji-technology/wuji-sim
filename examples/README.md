@@ -10,8 +10,8 @@ Install the environments as in the [Quick Start](../README.md#quick-start), then
 repository root. Each command opens a viewer window; add `--headless` to write files instead (see
 [Outputs](#outputs)). Replace `--hand right` with `--hand left` for the left hand, except in 06.
 
-MuJoCo runs on the CPU, MuJoCo Warp needs an NVIDIA GPU with CUDA, and Isaac Lab needs an NVIDIA RTX GPU (see
-[Requirements](../README.md#requirements)).
+MuJoCo and MotrixSim run on the CPU, MuJoCo Warp needs an NVIDIA GPU with CUDA, and Isaac Lab needs an NVIDIA
+RTX GPU (see [Requirements](../README.md#requirements)).
 
 ### 01 Load and view
 
@@ -21,6 +21,7 @@ The hand model loaded into the scene with a fixed wrist.
 pixi run -e mujoco python examples/mujoco/01_load_and_view.py --hand right
 pixi run -e mujoco-warp python examples/mujoco_warp/01_load_and_step.py --hand right
 pixi run -e isaaclab python examples/isaaclab/01_load_and_view.py --hand right
+pixi run -e motrixsim python examples/motrixsim/01_load_and_view.py --hand right
 ```
 
 ### 02 Preset poses
@@ -31,6 +32,7 @@ A cycle through the preset poses `open`, `half_grip`, `fist` and `pinch`.
 pixi run -e mujoco python examples/mujoco/02_preset_poses.py --hand right
 pixi run -e mujoco-warp python examples/mujoco_warp/02_preset_poses.py --hand right
 pixi run -e isaaclab python examples/isaaclab/02_preset_poses.py --hand right
+pixi run -e motrixsim python examples/motrixsim/02_preset_poses.py --hand right
 ```
 
 ### 03 MIT tracking
@@ -41,6 +43,7 @@ MIT torque control tracking a sequence of preset poses.
 pixi run -e mujoco python examples/mujoco/03_mit_tracking.py --hand right
 pixi run -e mujoco-warp python examples/mujoco_warp/03_mit_tracking.py --hand right
 pixi run -e isaaclab python examples/isaaclab/03_mit_tracking.py --hand right
+pixi run -e motrixsim python examples/motrixsim/03_mit_tracking.py --hand right
 ```
 
 ### 04 Joint sweep
@@ -51,6 +54,7 @@ MIT torque control sweeping every joint between its inner limits.
 pixi run -e mujoco python examples/mujoco/04_sweep_joints.py --hand right
 pixi run -e mujoco-warp python examples/mujoco_warp/04_sweep_joints.py --hand right
 pixi run -e isaaclab python examples/isaaclab/04_sweep_joints.py --hand right
+pixi run -e motrixsim python examples/motrixsim/04_sweep_joints.py --hand right
 ```
 
 ### 05 Parallel environments
@@ -60,6 +64,7 @@ Four hands in parallel, each running the 03 sequence from a staggered start pose
 ```bash
 pixi run -e mujoco-warp python examples/mujoco_warp/05_multi_world.py --hand right
 pixi run -e isaaclab python examples/isaaclab/05_parallel_envs.py --hand right
+pixi run -e motrixsim python examples/motrixsim/05_multi_world.py --hand right
 ```
 
 ### 06 Pen spin
@@ -73,6 +78,7 @@ model and simulator settings; the pen turns about two and a half times. The firs
 pixi run -e mujoco python examples/mujoco/06_pen_spin.py --hand right
 pixi run -e mujoco-warp python examples/mujoco_warp/06_pen_spin.py --hand right
 pixi run -e isaaclab python examples/isaaclab/06_pen_spin.py --hand right
+pixi run -e motrixsim python examples/motrixsim/06_pen_spin.py --hand right
 ```
 
 <p><img src="../docs/images/examples/example-06-pen-spin-three-sim-demo-20261122.gif" width="880" alt="The same pen-spinning policy and clip replayed side by side in MuJoCo, MuJoCo Warp and Isaac Lab, played in real time"></p>

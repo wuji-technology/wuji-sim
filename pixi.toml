@@ -31,8 +31,12 @@ mujoco-warp = "==3.11.0"
 warp-lang = "==1.17.0"
 
 
+[feature.motrixsim.pypi-dependencies]
+motrixsim = "==1.0.0"
+
 [environments]
 mujoco = { solve-group = "default" }
+motrixsim = { features = ["motrixsim"], solve-group = "default" }
 mujoco-warp = { features = ["mujoco-warp"], solve-group = "default" }
 isaaclab = { features = ["isaaclab"], no-default-feature = true, solve-group = "isaaclab" }
 

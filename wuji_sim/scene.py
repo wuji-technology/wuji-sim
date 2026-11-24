@@ -72,6 +72,7 @@ PREVIEW_TARGET_BODY = "scene_preview_target"
 FLOOR_CHECKER_RGB = {
     "mujoco": ([0.2, 0.3, 0.4], [0.1, 0.2, 0.3]),
     "mujoco_warp": ([0.2, 0.4, 0.3], [0.1, 0.3, 0.2]),
+    "motrixsim": ([0.4, 0.3, 0.5], [0.3, 0.2, 0.4]),
 }
 # The hand AABB is about 0.24 m, so 0.3 m keeps neighbours on the parallel-demo grid apart within one view.
 PARALLEL_SPACING_M = 0.3
@@ -134,10 +135,14 @@ def add_scene(spec: mujoco.MjSpec, hand: str, view: "View") -> None:
     )
     material = spec.add_material(name="scene_grid", texrepeat=[5, 5], texuniform=True, reflectance=0.45)
     material.textures[mujoco.mjtTextureRole.mjTEXROLE_RGB] = "scene_grid"
+    # A finite rendering quad (MuJoCo semantics: nonzero size[:2]) is a plain geom in MotrixSim, so batched
+    # rendering draws one per world and coplanar quads z-fight (05_multi_world flickers); a zero size[:2] is
+    # a true infinite plane there, which MotrixSim's renderer deduplicates across batch instances.
+    floor_size = [0.0, 0.0, 0.01] if view.platform == "motrixsim" else [5.0, 5.0, 0.01]
     spec.worldbody.add_geom(
         name="scene_floor",
         type=mujoco.mjtGeom.mjGEOM_PLANE,
-        size=[5.0, 5.0, 0.01],
+        size=floor_size,
         pos=[0.0, 0.0, view.floor_z],
         material="scene_grid",
     )

@@ -10,6 +10,7 @@ SIMULATOR_IMPORTS = {
     "mujoco": {"mujoco"},
     "mujoco_warp": {"mujoco", "mujoco_warp", "warp"},
     "isaaclab": {"isaaclab", "isaaclab_physx", "isaacsim", "omni", "pxr", "torch", "carb"},
+    "motrixsim": {"mujoco", "motrixsim"},
     "_mjcf": {"mujoco"},
 }
 # Imported as modules (`from wuji_sim import profiles`) so no shared name is reachable through a platform module.
@@ -17,6 +18,7 @@ SHARED_IMPORTS = {
     "mujoco": {"wuji_sim.mit", "wuji_sim.profiles", "wuji_sim.platforms._mjcf"},
     "mujoco_warp": {"wuji_sim.mit", "wuji_sim.profiles", "wuji_sim.platforms._mjcf"},
     "isaaclab": {"wuji_sim.conventions", "wuji_sim.mit", "wuji_sim.profiles"},
+    "motrixsim": {"wuji_sim.mit", "wuji_sim.profiles", "wuji_sim.platforms._mjcf"},
     "_mjcf": {"wuji_sim.mit", "wuji_sim.profiles"},
 }
 FORBIDDEN_IMPORTS = {"numpy"}
@@ -63,8 +65,8 @@ def profile_path_constants(source):
     return None
 
 
-def test_the_platforms_are_the_three_simulators():
-    assert [path.stem for path in PLATFORM_FILES] == ["isaaclab", "mujoco", "mujoco_warp"]
+def test_the_platforms_are_the_four_simulators():
+    assert [path.stem for path in PLATFORM_FILES] == ["isaaclab", "motrixsim", "mujoco", "mujoco_warp"]
 
 
 def test_every_module_is_registered():

@@ -22,7 +22,7 @@ SWEEP_DISTANCE_SCALE = 1.08
 # Preview look per simulator: MuJoCo raises a single hand above a fixed floor; Isaac Lab drops the floor below the hand.
 MUJOCO_FLOOR_Z = 0.0
 FLOOR_CLEARANCE_M = 0.08
-HAND_RAISE_M = {"mujoco": 0.08, "mujoco_warp": 0.08, "isaaclab": 0.0}
+HAND_RAISE_M = {"mujoco": 0.08, "mujoco_warp": 0.08, "motrixsim": 0.08, "isaaclab": 0.0}
 # The camera faces the palm, which points to -y on the right hand and +y on the left (scene.HAND_ROOT_QUAT).
 CAMERA_SIDE = {"right": -1.0, "left": 1.0}
 # World-frame view that keeps both pen ends in frame over every clip of the wuji-mjlab v2026.10.22 release.

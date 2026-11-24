@@ -47,8 +47,8 @@ def write_profile(tmp_path, text):
     return path
 
 
-def test_the_three_platform_profiles_are_checked():
-    assert [path.name for path in PROFILE_FILES] == ["isaaclab.toml", "mujoco.toml", "mujoco_warp.toml"]
+def test_the_platform_profiles_are_checked():
+    assert [path.name for path in PROFILE_FILES] == ["isaaclab.toml", "motrixsim.toml", "mujoco.toml", "mujoco_warp.toml"]
 
 
 @pytest.mark.parametrize("path", [*PROFILE_FILES, profiles.MODEL_OVERRIDES_PATH], ids=lambda path: path.name)

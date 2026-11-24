@@ -25,18 +25,18 @@
 
 ## 支持矩阵
 
-| | MuJoCo | MuJoCo Warp | Isaac Lab |
-| :--- | :--- | :--- | :--- |
-| 测试版本 | mujoco 3.11.0 | mujoco-warp 3.11.0, warp-lang 1.17.0 | Isaac Lab 3.0.0, Isaac Sim 6.2.0.0 |
-| 资产 | MJCF | MJCF | USD |
-| 控制模式 | MIT | MIT | MIT |
-| 运动学（指尖位置） | Sim-checked | Sim-checked | Sim-checked |
-| 惯量 | Sim-checked | Sim-checked | Sim-checked |
-| 自碰撞（测试动作） | Sim-checked | Sim-checked | Sim-checked |
-| 关节跟踪（空载） | Real-to-sim compared | Real-to-sim compared | Real-to-sim compared |
-| 关节跟踪（负载） | Not validated | Not validated | Not validated |
-| 指尖力 | Not validated | Not validated | Not validated |
-| 关节力矩限制 | Not validated | Not validated | Not validated |
+| | MuJoCo | MuJoCo Warp | Isaac Lab | MotrixSim |
+| :--- | :--- | :--- | :--- | :--- |
+| 测试版本 | mujoco 3.11.0 | mujoco-warp 3.11.0, warp-lang 1.17.0 | Isaac Lab 3.0.0, Isaac Sim 6.2.0.0 | motrixsim 1.0.0 |
+| 资产 | MJCF | MJCF | USD | MJCF |
+| 控制模式 | MIT | MIT | MIT | MIT |
+| 运动学（指尖位置） | Sim-checked | Sim-checked | Sim-checked | Not validated |
+| 惯量 | Sim-checked | Sim-checked | Sim-checked | Not validated |
+| 自碰撞（测试动作） | Sim-checked | Sim-checked | Sim-checked | Not validated |
+| 关节跟踪（空载） | Real-to-sim compared | Real-to-sim compared | Real-to-sim compared | Not validated |
+| 关节跟踪（负载） | Not validated | Not validated | Not validated | Not validated |
+| 指尖力 | Not validated | Not validated | Not validated | Not validated |
+| 关节力矩限制 | Not validated | Not validated | Not validated | Not validated |
 
 - **Sim-checked** — 仅在仿真中检查，未在真机上检查。
 - **Real-to-sim compared** — 把真机采集的指令在仿真中重放，并报告误差；未设验收阈值。
@@ -59,6 +59,7 @@ cd wuji-sim
 
 pixi install --locked -e mujoco        # MuJoCo (CPU)
 pixi install --locked -e mujoco-warp   # MuJoCo Warp (NVIDIA GPU)
+pixi install --locked -e motrixsim     # MotrixSim (CPU)
 pixi install --locked -e isaaclab      # Isaac Lab on Isaac Sim (NVIDIA RTX GPU)
 ```
 
@@ -95,14 +96,14 @@ pixi run -e isaaclab python examples/isaaclab/01_load_and_view.py --hand right
 
 ## 示例
 
-| # | 示例 | MuJoCo | MuJoCo Warp | Isaac Lab |
-| :--- | :--- | :---: | :---: | :---: |
-| 01 | 加载与查看 | [<img src="docs/images/examples/example-01-load-view-mujoco-demo-20261119.png" height="160" alt="右手在 qpos = 0,MuJoCo">](examples/mujoco/01_load_and_view.py) | [<img src="docs/images/examples/example-01-load-view-mujoco-warp-demo-20261119.png" height="160" alt="右手在 qpos = 0,MuJoCo Warp">](examples/mujoco_warp/01_load_and_step.py) | [<img src="docs/images/examples/example-01-load-view-isaaclab-demo-20261119.png" height="160" alt="右手在 qpos = 0,Isaac Lab">](examples/isaaclab/01_load_and_view.py) |
-| 02 | 预设姿态 | [<img src="docs/images/examples/example-02-preset-poses-mujoco-demo-20261119.png" height="160" alt="左手捏合姿态,MuJoCo">](examples/mujoco/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-mujoco-warp-demo-20261119.png" height="160" alt="左手捏合姿态,MuJoCo Warp">](examples/mujoco_warp/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-isaaclab-demo-20261119.png" height="160" alt="左手捏合姿态,Isaac Lab">](examples/isaaclab/02_preset_poses.py) |
-| 03 | MIT 跟踪 | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-demo-20261119.gif" height="160" alt="右手 MIT 跟踪：张开、半握、握拳、张开、捏合、张开,MuJoCo">](examples/mujoco/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-warp-demo-20261119.gif" height="160" alt="右手 MIT 跟踪,MuJoCo Warp">](examples/mujoco_warp/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-isaaclab-demo-20261119.gif" height="160" alt="右手 MIT 跟踪,Isaac Lab">](examples/isaaclab/03_mit_tracking.py) |
-| 04 | 关节扫动 | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-demo-20261119.gif" height="160" alt="左手关节扫动,MuJoCo">](examples/mujoco/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-warp-demo-20261119.gif" height="160" alt="左手关节扫动,MuJoCo Warp">](examples/mujoco_warp/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-isaaclab-demo-20261119.gif" height="160" alt="左手关节扫动,Isaac Lab">](examples/isaaclab/04_sweep_joints.py) |
-| 05 | 并行环境 | — | [<img src="docs/images/examples/example-05-parallel-environments-mujoco-warp-demo-20261119.gif" height="160" alt="Warp 四个不同姿态的右手环境，2×2 网格">](examples/mujoco_warp/05_multi_world.py) | [<img src="docs/images/examples/example-05-parallel-environments-isaaclab-demo-20261119.gif" height="160" alt="Isaac Lab 四个不同姿态的右手环境">](examples/isaaclab/05_parallel_envs.py) |
-| 06 | 转笔 | [<img src="docs/images/examples/example-06-pen-spin-mujoco-demo-20261122.gif" height="160" alt="右手按已发布策略转笔,MuJoCo,实时速度播放">](examples/mujoco/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-mujoco-warp-demo-20261122.gif" height="160" alt="右手按已发布策略转笔,MuJoCo Warp,实时速度播放">](examples/mujoco_warp/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-isaaclab-demo-20261122.gif" height="160" alt="右手按已发布策略转笔,Isaac Lab,实时速度播放">](examples/isaaclab/06_pen_spin.py) |
+| # | 示例 | MuJoCo | MuJoCo Warp | Isaac Lab | MotrixSim |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| 01 | 加载与查看 | [<img src="docs/images/examples/example-01-load-view-mujoco-demo-20261119.png" height="160" alt="右手在 qpos = 0,MuJoCo">](examples/mujoco/01_load_and_view.py) | [<img src="docs/images/examples/example-01-load-view-mujoco-warp-demo-20261119.png" height="160" alt="右手在 qpos = 0,MuJoCo Warp">](examples/mujoco_warp/01_load_and_step.py) | [<img src="docs/images/examples/example-01-load-view-isaaclab-demo-20261119.png" height="160" alt="右手在 qpos = 0,Isaac Lab">](examples/isaaclab/01_load_and_view.py) | [motrixsim/01_load_and_view.py](examples/motrixsim/01_load_and_view.py) |
+| 02 | 预设姿态 | [<img src="docs/images/examples/example-02-preset-poses-mujoco-demo-20261119.png" height="160" alt="左手捏合姿态,MuJoCo">](examples/mujoco/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-mujoco-warp-demo-20261119.png" height="160" alt="左手捏合姿态,MuJoCo Warp">](examples/mujoco_warp/02_preset_poses.py) | [<img src="docs/images/examples/example-02-preset-poses-isaaclab-demo-20261119.png" height="160" alt="左手捏合姿态,Isaac Lab">](examples/isaaclab/02_preset_poses.py) | [motrixsim/02_preset_poses.py](examples/motrixsim/02_preset_poses.py) |
+| 03 | MIT 跟踪 | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-demo-20261119.gif" height="160" alt="右手 MIT 跟踪：张开、半握、握拳、张开、捏合、张开,MuJoCo">](examples/mujoco/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-mujoco-warp-demo-20261119.gif" height="160" alt="右手 MIT 跟踪,MuJoCo Warp">](examples/mujoco_warp/03_mit_tracking.py) | [<img src="docs/images/examples/example-03-mit-tracking-isaaclab-demo-20261119.gif" height="160" alt="右手 MIT 跟踪,Isaac Lab">](examples/isaaclab/03_mit_tracking.py) | [motrixsim/03_mit_tracking.py](examples/motrixsim/03_mit_tracking.py) |
+| 04 | 关节扫动 | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-demo-20261119.gif" height="160" alt="左手关节扫动,MuJoCo">](examples/mujoco/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-mujoco-warp-demo-20261119.gif" height="160" alt="左手关节扫动,MuJoCo Warp">](examples/mujoco_warp/04_sweep_joints.py) | [<img src="docs/images/examples/example-04-joint-sweep-isaaclab-demo-20261119.gif" height="160" alt="左手关节扫动,Isaac Lab">](examples/isaaclab/04_sweep_joints.py) | [motrixsim/04_sweep_joints.py](examples/motrixsim/04_sweep_joints.py) |
+| 05 | 并行环境 | — | [<img src="docs/images/examples/example-05-parallel-environments-mujoco-warp-demo-20261119.gif" height="160" alt="Warp 四个不同姿态的右手环境，2×2 网格">](examples/mujoco_warp/05_multi_world.py) | [<img src="docs/images/examples/example-05-parallel-environments-isaaclab-demo-20261119.gif" height="160" alt="Isaac Lab 四个不同姿态的右手环境">](examples/isaaclab/05_parallel_envs.py) | [motrixsim/05_multi_world.py](examples/motrixsim/05_multi_world.py) |
+| 06 | 转笔 | [<img src="docs/images/examples/example-06-pen-spin-mujoco-demo-20261122.gif" height="160" alt="右手按已发布策略转笔,MuJoCo,实时速度播放">](examples/mujoco/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-mujoco-warp-demo-20261122.gif" height="160" alt="右手按已发布策略转笔,MuJoCo Warp,实时速度播放">](examples/mujoco_warp/06_pen_spin.py) | [<img src="docs/images/examples/example-06-pen-spin-isaaclab-demo-20261122.gif" height="160" alt="右手按已发布策略转笔,Isaac Lab,实时速度播放">](examples/isaaclab/06_pen_spin.py) | [motrixsim/06_pen_spin.py](examples/motrixsim/06_pen_spin.py) |
 
 —：该仿真器没有此示例。
 
@@ -136,6 +137,7 @@ SDK 中的名称：Python `ControlMode.MitV2`，C `WUJI_CONTROL_MODE_MIT_V2`，�
 | :--- | :--- | :--- | :--- | :--- |
 | MuJoCo | mujoco 3.11.0 | `mujoco` | 0.005 s | 不需要 |
 | MuJoCo Warp | mujoco-warp 3.11.0、warp-lang 1.17.0 | `mujoco-warp` | 0.005 s | 带 CUDA 的 NVIDIA GPU |
+| MotrixSim | motrixsim 1.0.0 | `motrixsim` | 0.005 s | 不需要 |
 | Isaac Lab | Isaac Lab 3.0.0，运行于 Isaac Sim 6.2.0.0 | `isaaclab` | 0.005 s | NVIDIA RTX GPU |
 
 - `mujoco` 和 `mujoco-warp` 环境解析到 Python 3.11；`isaaclab` 环境解析到 Python 3.12（Isaac Lab 3.0
